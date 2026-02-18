@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script type="module" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="node_modules/">
+
+    <title>details</title>
+              <style>
+ @media (max-width: 768px) {
+    #overcont {
+        flex-direction: column;
+        align-items: center;
+    }
+    #upButton {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 12px;
+        z-index: 1000;
+        margin-right: -30px;
+    }
+    #c{
+        width: 90% !important ;
+    }
+    
+ }
+.lds-ring,
+.lds-ring div {
+  box-sizing: border-box;
+}
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid currentColor;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: currentColor transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+    </style>
+</head>
+<body style="background-color:  #1e293b; color: #fff; font-family: sans-serif; " >
+    <!-- loader -->
+     <div style="position:fixed; left: 0;right: 0;top: 0;bottom: 0; margin: auto auto; display: flex;justify-content: center;align-items: center;z-index: 90909; background-color: #00000072; width: 100px;height: 100px;  border-radius: 20px; " id="loader"  >
+         <div class="lds-ring"><div></div><div></div><div></div><div></div>
+        </div>
+
+     </div>
+    <!-- /loader -->
+ <!-- models -->
+     <!-- login model start  -->
+     <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="exampleModalLabel"aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Username:</label>
+                            <input type="text" class="form-control" id="Lusername">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="col-form-label">Password:</label>
+                            <input type="password" class="form-control" id="Lpassword">
+                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="Login()">Login</button>
+                    </div>
+                    </div>
+                </div>
+     </div>
+    <!-- login model end  -->
+     <!-- register modal start -->
+      <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel"aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="Rname" class="col-form-label">name:</label>
+                                <input type="text" class="form-control" id="Rname">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Remail" class="col-form-label">Email:</label>
+                                <input type="email" class="form-control" id="Remail">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Rusername" class="col-form-label">Username:</label>
+                                <input type="text" class="form-control" id="Rusername">
+                            </div>
+                        <div class="mb-3">
+                            <label for="Rpassword" class="col-form-label">Password:</label>
+                            <input type="password" class="form-control" id="Rpassword">
+                        </div>
+                        <div class="mb-3">
+                            <label for="profile-picture" class="col-form-label">profile-picture:</label>
+                            <input type="file" class="form-control" id="profile-picture">
+                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="Register()">Register</button>
+                    </div>
+                    </div>
+                </div>
+    </div>
+     <!-- register modal end -->
+     <!-- add post modal start -->
+        <div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel"aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">create new post</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">title:</label>
+                            <input type="text" class="form-control" id="postTitle">
+                        </div>
+                        <div class="mb-3">
+                            <label for="postBody" class="col-form-label">body:</label>
+                            <textarea class="form-control" id="postBody" style="resize: none;"></textarea>
+                        </div>
+                           <div class="mb-3">
+                            <label for="postPicture" class="col-form-label">post-picture:</label>
+                            <input type="file" class="form-control" id="postPicture">
+                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="createNewPost()">create</button>
+                    </div>
+                    </div>
+                </div>
+        </div>
+     <!-- add post modal end -->
+ <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #121826 ; margin:10px 10px 0px 10px; border-radius: 10px; position: sticky; top: 10px;z-index: 1;">
+            <div class="container-fluid ">
+            <a class="navbar-brand" href="index.html" style="color: #fff;" href=>OGs</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color: white;">
+                    <span class="navbar-toggler-icon" style="color: #fff"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./index.html" style="color: #fff;">Home</a>
+                    </li>
+                    <li class="nav-item" >
+                    <a class="nav-link" href="" style="color: #fff;">Profile</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li> -->
+                </ul>
+                <div class="d-flex w-100 justify-content-end" style="margin-right: 10px;">
+                    <button id="login-bt" type="button" class="btn " style="margin-right: 5px;background-color: #f97316;color: #fff;"data-bs-toggle="modal" data-bs-target="#LoginModal">Login</button>
+                    <button id="register-bt" type="button" class="btn "style ="background-color: #f97316; color:#fff" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+                    <span id="U" style="padding: 5px; margin-right: 5px;opacity: 0.8;"></span>
+                    <img alt="" style="height: 40px;width: 40px;border-radius: 50%;margin-bottom: -8px;margin-right: 10px;"id="pfp">
+                    <button id="logout-bt" type="button" class="btn " style="margin-right: 5px;background-color: #f97316;color: #fff;"onclick="logout()">Log-out</button>
+                </div>
+                </div>
+                </div>
+                </div>
+   </nav>
+    <div class="d-flex justify-content-around" style="margin-top: -2px; max-height: calc(100vh - 66px); overflow-y: auto; ">
+        <!-- <div class="col-2" style="height: 1000px;background-color:#121826 "></div> -->
+        <div class="container bg-secondary-800 "  style="height: 100%; margin: 0 auto ;background-color:#121826; border-radius: 5px;padding: 10px 20px; width: 60%; " id="c">
+             <h2 style="padding: 10px; font-family: Arial, Helvetica, sans-serif;" id="postUser"></h2>
+         <!-- Content here -->
+
+ <div id="posts2" style="margin: 10px 10px 10px 10px ;">
+    </div>
+  
+ </div>
+     </div>
+     <div id="login-alert" style="width: 30%;  ; position: fixed ; top: 80px ;left : 35% ; z-index: 1000; display: none;">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+    </symbol>
+    <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+    </symbol>
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+    </symbol>
+    </svg>
+    <div class="alert alert-success d-flex align-items-center" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+    <div> 
+    </div>
+    </div>
+</div>
+     <script src="mainLogic.js"></script>
+     
+</body>
+</html>
