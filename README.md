@@ -3,7 +3,7 @@
 A dynamic social media web application built with vanilla JavaScript , css , bootstrap , html . 
 
 
-<img width="1024" height="593" alt="image" src="https://github.com/user-attachments/assets/cd11f210-15f8-4953-b926-2be721bfc91f" />
+<img width="2070" height="1189" alt="image" src="https://github.com/user-attachments/assets/7407567d-341d-41a7-bb24-46acf96ddf2b" />
 
 
 
