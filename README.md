@@ -9,7 +9,7 @@ A dynamic social media web application built with vanilla JavaScript , css , boo
 
 
 ## 🔗 Live Demo
-**[Click here to visit the live site hosted on Netlify](https://ogstarmiz.netlify.app/)**
+**[ here ](https://ogstarmiz.netlify.app/)**
 
 ## ✨ Features
 * **Authentication:** , **CRUD Operations posts + comments** , **Infinite Scroll** ,**Pagination**
